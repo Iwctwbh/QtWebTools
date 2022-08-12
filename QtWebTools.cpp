@@ -8,36 +8,22 @@ QtWebTools::QtWebTools(QWidget* parent)
 	// Init
 #pragma region Init ComboBox
 	// QMap 不支持 [key, value] 遍历 ？
-	ui.comboBox->addItems(mapComboBox.keys());
-	for (auto&& value : mapComboBox.first())
-	{
-		ui.comboBox_2->addItem(value);
-	}
+	ui.comboBox->addItems(convertTools.getListInputType());
+	ui.comboBox_2->addItems(convertTools.getMapForm().keys());
 
-	QObject::connect(ui.comboBox, &QComboBox::currentIndexChanged, [&]()
+	connect(ui.comboBox_2, &QComboBox::currentIndexChanged, [&]()
 	{
-		// ReInit ComboBox
-		ui.comboBox_2->clear();
-		for (auto&& value : mapComboBox.value(ui.comboBox->currentText()))
-		{
-			ui.comboBox_2->addItem(value);
-		}
+		// ReInit TextEdit_3
+		ui.textEdit_3->setText(convertTools.getMapForm().value(ui.comboBox_2->currentText()));
 	});
 #pragma endregion
 
 #pragma region Init PushButton
-	QObject::connect(ui.pushButton, &QPushButton::clicked, [&]()
+	connect(ui.pushButton, &QPushButton::clicked, [&]()
 	{
-		if (ui.comboBox->currentText().compare("SQL") && ui.comboBox_2->currentText().compare("Class"))
-		{
-			QList<QString> list_str_Text = ui.textEdit->toPlainText().split('|');
-			for (auto&& s : list_str_Text)
-			{
-				s = "public string " + s + "{get; set;} = \"\"";
-				ui.textEdit_2->setText(s);
-			}
-
-		}
+		convertTools.initList(ui.textEdit->toPlainText(), ConvertTools::sql);
+		convertTools.setForm(ui.textEdit_3->toPlainText());
+		ui.textEdit_2->setText(convertTools.toClass());
 	});
 #pragma endregion
 }

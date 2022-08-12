@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>900</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>40</y>
-      <width>111</width>
+      <x>130</x>
+      <y>30</y>
+      <width>161</width>
       <height>22</height>
      </rect>
     </property>
@@ -27,9 +27,9 @@
    <widget class="QComboBox" name="comboBox_2">
     <property name="geometry">
      <rect>
-      <x>378</x>
-      <y>40</y>
-      <width>111</width>
+      <x>610</x>
+      <y>30</y>
+      <width>161</width>
       <height>22</height>
      </rect>
     </property>
@@ -37,28 +37,28 @@
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>80</y>
-      <width>104</width>
-      <height>71</height>
+      <x>10</x>
+      <y>120</y>
+      <width>400</width>
+      <height>400</height>
      </rect>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>80</y>
-      <width>104</width>
-      <height>71</height>
+      <x>490</x>
+      <y>120</y>
+      <width>400</width>
+      <height>400</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>100</y>
+      <x>410</x>
+      <y>260</y>
       <width>75</width>
       <height>24</height>
      </rect>
@@ -67,13 +67,49 @@
      <string>Convert</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>53</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>输入:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>30</y>
+      <width>53</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>模板：</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>70</y>
+      <width>500</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>900</width>
      <height>22</height>
     </rect>
    </property>

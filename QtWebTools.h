@@ -1,22 +1,20 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+
+#include "ConvertTools.h"
 #include "ui_QtWebTools.h"
 
-class QtWebTools : public QMainWindow
+class QtWebTools final : public QMainWindow
 {
 	Q_OBJECT
 
 public:
 	QtWebTools(QWidget* parent = nullptr);
-	~QtWebTools();
+	~QtWebTools() override;
 
 private:
-	Ui::QtWebToolsClass ui{};
-	QMap<QString, QList<QString>> mapComboBox
-	{
-		{"Web", {"Jquery", "Class", "Control"}},
-		{"Jquery",{"Class","Control"}},
-		{"SQL",{"Class", "Control"}}
-	};
+	Ui::QtWebToolsClass ui{};	
+
+	ConvertTools convertTools{};
 };
