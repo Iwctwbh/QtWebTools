@@ -11,6 +11,8 @@ class ConvertTools final : QObject
 public:
 	ConvertTools();
 	~ConvertTools() override;
+
+	// Const Value
 	enum inputType
 	{
 		sql,
@@ -18,27 +20,13 @@ public:
 		control,
 		adapter
 	};
-	auto initList(const QString&, const inputType) -> int;
-	int setForm(const QString&);
 
-	// Convert
-	QString toClass(void);
-
-	// Result
-	QString getLastResult(void);
-
-	// Get Const
-	auto getListInputType() const ->QList<QString>;
-	auto getMapForm() const ->QMap<QString, QString>;
-private:
-	QList<QString> listParameters{};
-	QString strForm{};
-	QString strResult{};
-	QString strLastResult{};
-
-	const QList<QString> listInputType
+	const QMap<QString, inputType> mapInputType
 	{
-		"SQL","Class"
+		{"SQL", sql},
+		{"Args", args},
+		{"Control", control},
+		{"Adapter", adapter}
 	};
 
 	const QMap<QString, QString> mapForm
@@ -49,4 +37,19 @@ private:
 		{"Adapter","DataBaseHelper.SafeSqlString($$$$),\\n"},
 		{"Control", R"(temp = DataBaseHelper.GetValueFromRowByName(SqlResult.Rows[0], "$$$$");\n)"}
 	};
+
+	auto initList(const QString&, const inputType) -> int;
+	int setForm(const QString&);
+
+	// Convert
+	QString toClass(void);
+
+	// Result
+	QString getLastResult(void);
+	
+private:
+	QList<QString> listParameters{};
+	QString strForm{};
+	QString strResult{};
+	QString strLastResult{};
 };

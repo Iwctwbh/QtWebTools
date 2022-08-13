@@ -1,5 +1,7 @@
 #include "ConvertTools.h"
 
+#include <qregularexpression.h>
+
 ConvertTools::ConvertTools()
 = default;
 
@@ -17,7 +19,11 @@ int ConvertTools::initList(const QString& argString, const inputType enumType)
 		}
 		case args:
 		{
-			listParameters = {};
+			listParameters = argString.split(',');
+			for (auto&& s : listParameters)
+			{
+				s = s.trimmed().split(' ').last();
+			}
 			break;
 		}
 		case control:
@@ -57,14 +63,4 @@ QString ConvertTools::toClass()
 QString ConvertTools::getLastResult(void)
 {
 	return strLastResult;
-}
-
-auto ConvertTools::getListInputType() const -> QList<QString>
-{
-	return listInputType;
-}
-
-auto ConvertTools::getMapForm() const -> QMap<QString, QString>
-{
-	return mapForm;
 }
