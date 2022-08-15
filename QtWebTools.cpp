@@ -25,7 +25,7 @@ QtWebTools::QtWebTools(QWidget* parent)
 	{
 		convertTools.initList(ui.textEdit->toPlainText(), convertTools.mapInputType.value(ui.comboBox->currentText()));
 		convertTools.setForm(ui.textEdit_3->toPlainText());
-		ui.textEdit_2->setText(convertTools.toClass());
+		ui.textEdit_2->setText(convertTools.getResult());
 	});
 #pragma endregion
 }

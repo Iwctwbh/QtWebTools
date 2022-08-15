@@ -18,7 +18,9 @@ public:
 		sql,
 		args,
 		control,
-		adapter
+		adapter,
+		ajax,
+		model
 	};
 
 	const QMap<QString, inputType> mapInputType
@@ -26,27 +28,30 @@ public:
 		{"SQL", sql},
 		{"Args", args},
 		{"Control", control},
-		{"Adapter", adapter}
+		{"Adapter", adapter},
+		{"Ajax", ajax},
+		{"Model", model}
 	};
 
 	const QMap<QString, QString> mapForm
 	{
 		{"", ""},
-		{"Class", R"(public string $$$$ {get; set;} = "";\n)"},
+		{"Model", R"(public string $$$$ {get; set;} = "";\n)"},
 		{"Args","string $$$$, "},
 		{"Adapter","DataBaseHelper.SafeSqlString($$$$),\\n"},
-		{"Control", R"(temp = DataBaseHelper.GetValueFromRowByName(SqlResult.Rows[0], "$$$$");\n)"}
+		{"Control", R"(temp = DataBaseHelper.GetValueFromRowByName(SqlResult.Rows[0], "$$$$");\n)"},
+		{"Ajax", "$$$$: $(\"#$$$$\").val(),\n"}
 	};
 
 	auto initList(const QString&, const inputType) -> int;
 	int setForm(const QString&);
 
 	// Convert
-	QString toClass(void);
+	QString getResult(void);
 
 	// Result
 	QString getLastResult(void);
-	
+
 private:
 	QList<QString> listParameters{};
 	QString strForm{};
