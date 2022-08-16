@@ -104,6 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvertTools.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QtWebTools.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Application.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
